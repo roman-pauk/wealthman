@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
-import reducer from '../reducers/root'
+import reducer from '@reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import sagaMiddleware from '@store/sagaMiddleware'
 
 const loggerMiddleware = createLogger({
     level: 'info',
@@ -9,14 +10,14 @@ const loggerMiddleware = createLogger({
 })
 
 const enhancer = composeWithDevTools(
-    applyMiddleware(loggerMiddleware),
+    applyMiddleware(sagaMiddleware, loggerMiddleware),
 )
 
 export default function configureStore(initialState) {
     const store = createStore(reducer, initialState, enhancer)
     if (module.hot) {
-        module.hot.accept('../reducers/root', () =>
-            store.replaceReducer(require('../reducers/root').default),
+        module.hot.accept('@reducers', () =>
+            store.replaceReducer(require('@reducers').default),
         )
     }
     return store
