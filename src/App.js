@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Main from '@components/Smart/Main'
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                hello
+                <Main/>
             </div>
         )
     }

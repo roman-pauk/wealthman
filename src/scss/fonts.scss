@@ -1,0 +1,13 @@
+@mixin font-face ($fontname, $fontfile, $fontweight: normal, $fontstyle: normal) {
+	@font-face {
+		font-family: $fontname;
+		src: url('../fonts/' + $fontname + '/' + $fontfile + '.woff2') format('woff2'),
+		     url('../fonts/' + $fontname + '/' + $fontfile + '.woff') format('woff'),
+			 url('../fonts/' + $fontname + '/' + $fontfile + '.ttf') format('truetype');
+		font-weight: $fontweight;
+		font-style: $fontstyle;
+	}
+};
+
+@include font-face('Intro', 'Intro', 600);
+@include font-face('Intro', 'Intro-Regular', 400);

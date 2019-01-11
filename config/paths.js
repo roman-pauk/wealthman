@@ -94,6 +94,8 @@ module.exports = {
   componentsPath: resolveApp('src/components'),
   pagesPath: resolveApp('src/pages'),
   stylesPath: resolveApp('src/scss'),
+  fontsPath: resolveApp('src/fonts'),
+  imgsPath: resolveApp('src/images'),
 };
 
 
